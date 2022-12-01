@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  timesdb:
+    image: postgres:12
+    container_name: timesdb
+    restart: always
+    ports:
+      - 5430:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: admin
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
